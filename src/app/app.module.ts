@@ -1,7 +1,12 @@
-import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { BrowserModule } from '@angular/platform-browser';
 
+// angular material
+import { MatButtonModule } from '@angular/material/button';
+
+// custom components
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { UsersComponent } from './users/users.component';
@@ -9,63 +14,28 @@ import { ServersComponent } from './servers/servers.component';
 import { UserComponent } from './users/user/user.component';
 import { EditServerComponent } from './servers/edit-server/edit-server.component';
 import { ServerComponent } from './servers/server/server.component';
+
+// custom services
 import { ServersService } from './servers/servers.service';
-import { RouterModule, Routes } from '@angular/router';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-// material
-import { MatButtonModule } from '@angular/material/button';
-
-const appRoutes: Routes = [
-  {
-    path: '',
-    component: HomeComponent,
-  },
-  {
-    path: 'users',
-    component: UsersComponent,
-    children: [
-      {
-        path: ':id/:name',
-        component: UserComponent,
-      },
-    ],
-  },
-  {
-    path: 'servers',
-    component: ServersComponent,
-    children: [
-      {
-        path: ':id',
-        component: ServerComponent,
-      },
-      {
-        path: ':id/edit',
-        component: EditServerComponent,
-      },
-    ],
-  },
-  {
-    path: '**',
-    redirectTo: '/',
-  },
-];
+// routes
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [
     AppComponent,
+    EditServerComponent,
     HomeComponent,
-    UsersComponent,
+    ServerComponent,
     ServersComponent,
     UserComponent,
-    EditServerComponent,
-    ServerComponent,
+    UsersComponent,
   ],
   imports: [
+    AppRoutingModule,
+    BrowserAnimationsModule,
     BrowserModule,
     FormsModule,
-    RouterModule.forRoot(appRoutes),
-    BrowserAnimationsModule,
     MatButtonModule,
   ],
   providers: [ServersService],
