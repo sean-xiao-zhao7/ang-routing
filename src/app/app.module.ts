@@ -22,6 +22,7 @@ import { ServersService } from './servers/servers.service';
 import { AppRoutingModule } from './app-routing.module';
 import { AuthService } from './services/auth.service';
 import { AuthGuard } from './services/auth-guard.service';
+import { CanDeactivateGuard } from './services/can-deactivate-guard.service';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,7 @@ import { AuthGuard } from './services/auth-guard.service';
     FormsModule,
     MatButtonModule,
   ],
-  providers: [AuthGuard, AuthService, ServersService],
+  providers: [AuthGuard, AuthService, CanDeactivateGuard, ServersService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
