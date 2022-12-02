@@ -45,6 +45,10 @@ const appRoutes: Routes = [
       },
     ],
   },
+  {
+    path: '**',
+    redirectTo: '/',
+  },
 ];
 
 @NgModule({
