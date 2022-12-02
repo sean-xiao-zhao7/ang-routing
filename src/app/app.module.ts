@@ -34,7 +34,7 @@ const appRoutes: Routes = [
     component: ServersComponent,
   },
   {
-    path: 'server/:id',
+    path: 'servers/:id',
     component: ServerComponent,
   },
   {
